@@ -1,5 +1,19 @@
-import Image from "next/image";
+import React from "react";
+import { CurrentWeather as CurrentWeatherType } from "./models/weather";
+import CurrentWeatherComponent from "./components/CurrentWeather";
 
-export default function Home() {
-  return <div>Hello My Next</div>;
+export default async function Home() {
+  const dummyCurrentWeatherData: CurrentWeatherType = {
+    city: "Oslo",
+    country: "No",
+    temperature: 30,
+    description: "clear sky",
+    icon: "01d",
+  };
+
+  return (
+    <div>
+      <CurrentWeatherComponent currentWeather={dummyCurrentWeatherData} />
+    </div>
+  );
 }
